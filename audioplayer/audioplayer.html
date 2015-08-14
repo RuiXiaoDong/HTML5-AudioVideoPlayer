@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            /* Used to style "buttons" on the audioplayer. */
+            .button {
+                border: thin solid grey;
+                background: #eee;
+                padding: 0px 3px 0px 3px;
+            }
+            /* Used to hide play/pause buttons. */
+            .button-hidden {
+                display: none;
+            }
+            /* Used to show play/pause buttons. */
+            .button-inline {
+                display: inline;
+            }
+            /* Audio player styles. It just looks like a button now. */
+            .audio-player {
+                border: thin solid black;
+                width: 200px;
+                height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <span id="audioplayer-container" class="audio-player"></span>
+		<br/>
+        <span id="audioplayer-container2" class="audio-player"></span>
+    </body>
+    <script src="../3rdparty/jquery/jquery-2.1.4.min.js"></script>
+
+    <!-- TODO Change this to the right path. -->
+    <script src="../audioplayer/audioplayer.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // TODO Change the audio source.
+            // Make sure that the web server is configured to accept byte-range
+            // fields in HTTP requests..
+            var audioplayers = [
+                new AudioPlayer($('#audioplayer-container'), 'Coin_Drop.mp3', { start: 2, end: 3 }),
+                new AudioPlayer($('#audioplayer-container2'), 'Coin_Drop.mp3', { start: 1, end: 2 })
+            ];
+        });
+    </script>
+</html>

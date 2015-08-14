@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            /* Video player styles. It's just a box with maximum width set to
+            500px. USE max-width instead of width to let browsers handle video
+            aspect ratios correctly.*/
+            .video-player {
+                max-width: 500px;
+            }
+            .video {
+                /* This should be <= video-player.max-width. Applies to the
+                video element. */
+                max-width: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="videoplayer-container" class="video-player"></div>
+        <div id="videoplayer-container2" class="video-player"></div>
+    </body>
+    <script src="/codehaven/3rdparty/jquery/jquery-2.1.4.min.js"></script>
+
+    <!-- TODO Change this to the right path. -->
+    <script src="/codehaven/videoplayer/videoplayer.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // TODO Change the video source.
+            // Make sure that the web server is configured to accept byte-range
+            // fields in HTTP requests.
+            var src = '/Storage/blob/sample%20video%20cartoon.mp4';
+            var videoplayers = [
+                new VideoPlayer($('#videoplayer-container'), src, { start: 1, end: 3 }),
+                new VideoPlayer($('#videoplayer-container2'), src, { start: 7, end: 9 })
+            ];
+            console.log(videoplayers);
+        });
+    </script>
+</html>
